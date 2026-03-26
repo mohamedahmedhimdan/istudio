@@ -1,3 +1,6 @@
+# Same file lives in assets/ for the site; avoid duplicating a large binary in git
+/logodone.png
+
 js/config.js
 .DS_Store
 Thumbs.db

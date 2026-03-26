@@ -9,7 +9,7 @@ Netlify: In Site settings → Environment variables, add PEXELS_API_KEY (same va
 Replace or add these files to match your brand kit:
 
 - item.png — Optional legacy asset; the hub now uses solid colour cards (no image required).
-- logo.png — Your official mark (also used in manifest / home screen).
+- logodone.png — Your official mark (also used in manifest / home screen).
 - color plate.png — Open css/styles.css and adjust the :root variables (--copper, --charcoal, etc.) to match your plate.
 - interface.png / البنود.png — Layout reference only; the live site follows that structure (split hero items, centered inspiration band).
 - istudio-smart-chapter images — Save as:

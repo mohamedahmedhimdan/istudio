@@ -1,4 +1,4 @@
-const CACHE = "istudio-v3";
+const CACHE = "istudio-v5";
 const ASSETS = [
   "./",
   "./index.html",

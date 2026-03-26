@@ -19,8 +19,23 @@
     ],
     smart: [
       "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&q=80",
-      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80",
-      "https://images.unsplash.com/photo-1600566752355-3577923c27fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+      "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80",
+      "https://images.unsplash.com/photo-1600566752355-3577923c27fb?w=800&q=80",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1400&q=80",
+      "https://images.unsplash.com/photo-1549887534-1541e9326642?w=600&q=80",
+      "https://images.unsplash.com/photo-1541961017774-62249c4c812e?w=600&q=80",
+      "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&q=80",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80",
+      "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=600&q=80",
+      "https://images.unsplash.com/photo-1578303512597-81e6f16d3234?w=600&q=80",
+      "https://images.unsplash.com/photo-1622979132695-59bec08ecd23?w=800&q=80",
+      "https://images.unsplash.com/photo-1592478411213-61535fdd861d?w=800&q=80",
+      "https://images.unsplash.com/photo-1633596683562-4a47eb4983c5?w=1200&q=80",
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1000&q=80",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80"
     ]
   };
 
@@ -67,7 +82,7 @@
         { once: true }
       );
     });
-    document.querySelectorAll(".smart-visuals img").forEach((img, i) => {
+    document.querySelectorAll(".smart-page img").forEach((img, i) => {
       img.addEventListener(
         "error",
         () => {
@@ -350,7 +365,7 @@
   document.addEventListener("DOMContentLoaded", () => {
     applyI18n();
     if (document.getElementById("splash")) wireSplash();
-    if (document.querySelector(".about-grid img, .smart-visuals img")) wireImages();
+    if (document.querySelector(".about-grid img, .smart-page img")) wireImages();
     registerSW();
     wireInstall();
     wireNav();

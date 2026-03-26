@@ -6,7 +6,7 @@
   --charcoal: #ebe6e1;
   --slate: #9c9690;
   --mist: #2c2c2c;
-  --cream: #121212;
+  --cream: #262624;
   --white: #1e1e1e;
   --line: #33302c;
   --shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
@@ -155,7 +155,7 @@ body.splash-open .skip-link:focus {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(18, 18, 18, 0.94);
+  background: rgba(38, 38, 36, 0.94);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
 }
@@ -701,81 +701,390 @@ main > section[id] {
   margin: 0.75rem 0 0;
 }
 
-/* Smart Chapter */
+/* Smart Chapter — editorial layouts */
+.smart-page {
+  padding-bottom: 1rem;
+}
+
 .section-smart {
   border-top: 1px solid var(--line);
 }
 
-.smart-header {
-  text-align: center;
-  max-width: 640px;
-  margin: 0 auto 2rem;
+.section-smart--intro {
+  border-top: none;
+  padding-top: 2.5rem;
 }
 
-.smart-visuals {
-  display: grid;
-  gap: 0.75rem;
-  margin-bottom: 2.5rem;
+.smart-page-label {
+  margin-bottom: 0.75rem;
 }
 
-@media (min-width: 700px) {
-  .smart-visuals {
-    grid-template-columns: 1.2fr 1fr;
-    grid-template-rows: 1fr 1fr;
-  }
-  .smart-fig--lg {
-    grid-row: span 2;
-  }
-  .smart-fig--lg img {
-    min-height: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+.smart-block {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
-.smart-fig {
+.smart-block--last {
+  padding-bottom: 4rem;
+}
+
+.smart-block-head {
+  margin-bottom: 1.75rem;
+}
+
+.smart-block-title {
+  font-size: clamp(1.2rem, 2.4vw, 1.65rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin: 0 0 0.65rem;
+  color: var(--charcoal);
+}
+
+.smart-block-title--xl {
+  font-size: clamp(1.35rem, 3vw, 2rem);
+}
+
+.smart-block-title--inset {
+  margin-bottom: 0.5rem;
+}
+
+.smart-head-rule {
+  height: 1px;
+  width: 100%;
+  background: var(--line);
+  margin-top: 0.35rem;
+}
+
+.smart-head-rule--subtle {
+  background: linear-gradient(90deg, var(--line), transparent);
+  max-width: 100%;
+}
+
+.smart-head-rule--accent {
+  background: linear-gradient(90deg, var(--copper), rgba(196, 149, 106, 0.2));
+  height: 2px;
+}
+
+.smart-head-rule--inset {
+  max-width: 100%;
+  margin-bottom: 1.25rem;
+}
+
+.smart-prose {
   margin: 0;
-  border-radius: var(--radius);
+  color: var(--slate);
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  line-height: 1.7;
+  max-width: 52ch;
+}
+
+.smart-media {
+  margin: 0;
+  border-radius: clamp(6px, 1vw, 10px);
   overflow: hidden;
   background: var(--mist);
-  min-height: 200px;
+  border: 1px solid var(--line);
 }
-.smart-fig img {
+
+.smart-media img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.smart-points {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* —— 06 Intro checkerboard —— */
+.smart-intro-grid {
   display: grid;
-  gap: 1.25rem;
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+  grid-template-columns: 1fr;
+}
+
+.smart-intro-text {
+  color: var(--slate);
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  line-height: 1.75;
+}
+
+.smart-media--landscape {
+  aspect-ratio: 16 / 10;
+  min-height: 180px;
 }
 
 @media (min-width: 768px) {
-  .smart-points {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+  .smart-intro-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    align-items: start;
+  }
+
+  .smart-intro-text {
+    max-width: none;
+  }
+
+  /* DOM mobile: p1, img1, p2, img2 → desktop checkerboard */
+  .smart-intro-grid .smart-intro-text:first-of-type {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .smart-intro-grid figure:nth-of-type(1) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .smart-intro-grid .smart-intro-text:last-of-type {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .smart-intro-grid figure:nth-of-type(2) {
+    grid-column: 1;
+    grid-row: 2;
   }
 }
 
-.smart-points li {
-  padding: 1.25rem;
-  background: var(--white);
-  border-radius: var(--radius);
-  border: 1px solid var(--line);
+/* —— 06.A Material room —— */
+.smart-mat-grid {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.25rem, 3vw, 2rem);
 }
-.smart-points strong {
-  display: block;
-  font-size: 1.05rem;
-  margin-bottom: 0.35rem;
+
+.smart-mat-right {
+  order: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
-.smart-points p {
-  margin: 0;
-  color: var(--slate);
-  font-size: 0.95rem;
+
+.smart-mat-stack {
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.smart-mat-stack .smart-media--portrait {
+  aspect-ratio: 4 / 5;
+  max-height: 280px;
+}
+
+.smart-media--hero {
+  aspect-ratio: 16 / 10;
+  min-height: 200px;
+}
+
+@media (min-width: 768px) {
+  .smart-mat-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.45fr);
+    gap: clamp(1.25rem, 2.5vw, 2rem);
+    align-items: start;
+  }
+
+  .smart-mat-right,
+  .smart-mat-stack {
+    order: unset;
+  }
+
+  .smart-mat-stack .smart-media--portrait {
+    max-height: none;
+    flex: 1;
+    min-height: 140px;
+    aspect-ratio: 3 / 4;
+  }
+
+  .smart-mat-stack {
+    min-height: 100%;
+  }
+}
+
+@media (min-width: 900px) {
+  .smart-mat-stack {
+    gap: 1rem;
+  }
+}
+
+/* —— 06.B Artworks —— */
+.smart-art-grid {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.smart-art-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.smart-art-triplet {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.smart-media--art {
+  aspect-ratio: 2 / 3;
+  min-height: 140px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.35);
+}
+
+.smart-art-quad {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(0.5rem, 2vw, 1rem);
+}
+
+.smart-media--portrait-tall {
+  aspect-ratio: 3 / 4;
+  min-height: 160px;
+}
+
+@media (min-width: 900px) {
+  .smart-art-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
+    gap: clamp(1.25rem, 2.5vw, 2rem);
+    align-items: start;
+  }
+
+  .smart-art-left .smart-prose {
+    margin-bottom: 0.25rem;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+  .smart-art-quad {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .smart-media--portrait-tall {
+    aspect-ratio: 2 / 3;
+  }
+}
+
+/* —— 06.C VR —— */
+.smart-vr-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.smart-vr-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.smart-media--vr {
+  aspect-ratio: 16 / 10;
+  min-height: 160px;
+}
+
+.smart-media--vr-feature {
+  aspect-ratio: 16 / 9;
+  min-height: 200px;
+}
+
+.smart-vr-copy {
+  max-width: 65ch;
+}
+
+@media (min-width: 768px) {
+  .smart-vr-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.28fr);
+    grid-template-rows: auto auto;
+    gap: 1rem 1.5rem;
+    align-items: start;
+  }
+
+  .smart-vr-left {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    gap: 1rem;
+  }
+
+  .smart-media--vr-feature {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .smart-vr-copy {
+    grid-column: 2;
+    grid-row: 2;
+    margin: 0;
+  }
+}
+
+/* —— 06.D Meeting —— */
+.smart-meet-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.smart-meet-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.smart-meet-copy .smart-prose {
+  margin-bottom: 1.25rem;
+  max-width: 52ch;
+}
+
+.smart-media--meet-sm {
+  aspect-ratio: 16 / 10;
+  min-height: 180px;
+}
+
+.smart-media--meet-lg {
+  aspect-ratio: 3 / 4;
+  min-height: 280px;
+  max-height: 85vh;
+}
+
+@media (min-width: 768px) {
+  .smart-meet-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.88fr);
+    gap: clamp(1.25rem, 3vw, 2.5rem);
+    align-items: stretch;
+  }
+
+  .smart-media--meet-lg {
+    min-height: 100%;
+    max-height: none;
+    aspect-ratio: auto;
+    height: 100%;
+  }
+
+  .smart-media--meet-lg img {
+    min-height: 420px;
+  }
+}
+
+body.lang-ar .smart-prose,
+body.lang-ar .smart-intro-text {
+  text-align: right;
+}
+
+body.lang-ar .smart-block-head--full .smart-block-title,
+body.lang-ar .smart-block-title--xl {
+  text-align: right;
+}
+
+body.lang-ar .smart-head-rule--subtle {
+  background: linear-gradient(270deg, var(--line), transparent);
+}
+
+body.lang-ar .smart-head-rule--accent {
+  background: linear-gradient(270deg, var(--copper), rgba(196, 149, 106, 0.2));
 }
 
 /* About */
