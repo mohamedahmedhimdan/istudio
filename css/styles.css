@@ -1,19 +1,20 @@
-/* Palette aligned with iStudio copper + neutrals — tune in :root to match color plate.png */
+/* Dark theme — copper accents on charcoal */
 :root {
-  --copper: #a67c52;
-  --copper-hover: #8f6844;
-  --copper-muted: rgba(166, 124, 82, 0.15);
-  --charcoal: #2b2b2b;
-  --slate: #5c5c5c;
-  --mist: #e8e4de;
-  --cream: #f4f2ef;
-  --white: #ffffff;
-  --line: #dcd6ce;
-  --shadow: 0 12px 40px rgba(43, 43, 43, 0.08);
+  --copper: #c4956a;
+  --copper-hover: #d4a57a;
+  --copper-muted: rgba(196, 149, 106, 0.18);
+  --charcoal: #ebe6e1;
+  --slate: #9c9690;
+  --mist: #2c2c2c;
+  --cream: #121212;
+  --white: #1e1e1e;
+  --line: #33302c;
+  --shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
   --radius: 12px;
   --font: "DM Sans", system-ui, sans-serif;
   --font-ar: "Noto Sans Arabic", "DM Sans", system-ui, sans-serif;
   --header-h: 72px;
+  --pure-white: #ffffff;
 }
 
 *,
@@ -69,8 +70,7 @@ body.splash-open {
   height: auto;
   margin: 0 auto;
   object-fit: contain;
-  /* Knocks out flat white logo backgrounds on cream; remove if you use a true transparent PNG/SVG */
-  mix-blend-mode: multiply;
+  mix-blend-mode: normal;
   opacity: 0;
   transform: scale(0.94);
   animation: splash-logo-in 1s ease 0.15s forwards;
@@ -137,7 +137,7 @@ a:hover {
   left: -999px;
   top: 0;
   background: var(--copper);
-  color: var(--white);
+  color: var(--pure-white);
   padding: 0.5rem 1rem;
   z-index: 1000;
 }
@@ -155,8 +155,8 @@ body.splash-open .skip-link:focus {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(244, 242, 239, 0.92);
-  backdrop-filter: blur(10px);
+  background: rgba(18, 18, 18, 0.94);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
 }
 
@@ -190,7 +190,7 @@ body.splash-open .skip-link:focus {
   max-width: min(42vw, 168px);
   object-fit: contain;
   display: block;
-  mix-blend-mode: multiply;
+  mix-blend-mode: normal;
 }
 
 .nav {
@@ -218,52 +218,61 @@ body.splash-open .skip-link:focus {
   margin-left: auto;
 }
 
-.nav-toggle {
+/* Mobile: horizontal scrolling strip (items side by side) */
+.nav-strip {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 6px;
-  width: 44px;
-  height: 44px;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  padding: 0;
-  margin-left: 0.5rem;
-}
-.nav-toggle span {
-  display: block;
-  height: 2px;
-  width: 22px;
-  background: var(--charcoal);
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem 0.65rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  border-bottom: 1px solid var(--line);
+  max-width: 1200px;
   margin: 0 auto;
 }
-
-.nav-mobile {
-  display: flex;
-  flex-direction: column;
-  padding: 0 1.25rem 1rem;
-  gap: 0.75rem;
-  border-bottom: 1px solid var(--line);
+.nav-strip::-webkit-scrollbar {
+  height: 4px;
 }
-.nav-mobile a {
+.nav-strip::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 4px;
+}
+.nav-strip a {
+  flex: 0 0 auto;
+  white-space: nowrap;
   color: var(--charcoal);
   font-weight: 600;
-  padding: 0.35rem 0;
+  font-size: 0.82rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  background: var(--mist);
+  border: 1px solid var(--line);
+  text-decoration: none;
+}
+.nav-strip a:hover {
+  border-color: var(--copper);
+  color: var(--copper);
+  text-decoration: none;
 }
 
 @media (min-width: 900px) {
   .nav {
     display: flex;
   }
-  .nav-toggle {
+  .nav-strip {
     display: none;
-  }
-  .nav-mobile {
-    display: none !important;
   }
   .header-actions {
     margin-left: 0;
+  }
+}
+
+@media (max-width: 899px) {
+  .nav {
+    display: none !important;
   }
 }
 
@@ -285,12 +294,12 @@ body.splash-open .skip-link:focus {
 
 .btn-primary {
   background: var(--copper);
-  color: var(--white);
+  color: var(--pure-white);
 }
 .btn-primary:hover {
   background: var(--copper-hover);
   text-decoration: none;
-  color: var(--white);
+  color: var(--pure-white);
 }
 
 .btn-secondary {
@@ -313,7 +322,7 @@ body.splash-open .skip-link:focus {
 }
 
 .btn-lang {
-  background: var(--white);
+  background: var(--mist);
   color: var(--charcoal);
   border: 1px solid var(--line);
   padding: 0.5rem 1rem;
@@ -479,6 +488,7 @@ main > section[id] {
   border: 1px solid var(--line);
   border-radius: 10px;
   font: inherit;
+  color: var(--charcoal);
   background: var(--white);
   margin-bottom: 1rem;
 }
@@ -500,7 +510,7 @@ main > section[id] {
 
 /* Pexels */
 .section-inspire {
-  background: linear-gradient(180deg, var(--cream) 0%, var(--white) 35%, var(--cream) 100%);
+  background: linear-gradient(180deg, var(--cream) 0%, #181818 40%, var(--cream) 100%);
   max-width: none;
   padding-left: 1.25rem;
   padding-right: 1.25rem;
@@ -847,18 +857,36 @@ main > section[id] {
   max-width: 36rem;
 }
 
+/* Mobile: hub cards in one horizontal scroll row */
 .hub-grid {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   gap: 0.75rem;
-  max-width: 960px;
+  max-width: 100%;
   margin: 0 auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 0.35rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+.hub-grid .hub-card {
+  flex: 0 0 min(78vw, 270px);
+  max-width: min(78vw, 270px);
 }
 
-@media (min-width: 480px) {
+@media (min-width: 640px) {
   .hub-grid {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
+    overflow-x: visible;
+    max-width: 960px;
     gap: 0.85rem;
+  }
+  .hub-grid .hub-card {
+    flex: none;
+    max-width: none;
   }
 }
 
@@ -958,10 +986,10 @@ main > section[id] {
 }
 
 .hub-card--light {
-  background: #fff;
+  background: #2a2826;
   color: var(--charcoal);
   border: 1px solid var(--line);
-  box-shadow: 0 4px 18px rgba(43, 43, 43, 0.06);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
 }
 .hub-card--light .hub-card-desc {
   color: var(--slate);

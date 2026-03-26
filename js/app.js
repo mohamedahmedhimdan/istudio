@@ -105,26 +105,7 @@
   }
 
   function wireNav() {
-    const toggle = document.getElementById("nav-toggle");
-    const mobile = document.getElementById("nav-mobile");
-    if (!toggle || !mobile) return;
-    toggle.addEventListener("click", () => {
-      const open = mobile.hidden;
-      mobile.hidden = !open;
-      toggle.setAttribute("aria-expanded", String(open));
-    });
-    function closeMobileNav() {
-      mobile.hidden = true;
-      toggle.setAttribute("aria-expanded", "false");
-    }
-    mobile.querySelectorAll("a").forEach((a) => {
-      a.addEventListener("click", closeMobileNav);
-    });
-    document.getElementById("main")?.addEventListener("click", (e) => {
-      const a = e.target.closest("a[href^='#']");
-      if (!a || !mobile || mobile.hidden) return;
-      closeMobileNav();
-    });
+    /* Mobile uses horizontal .nav-strip; no hamburger menu. */
   }
 
   function wireLang() {
@@ -140,6 +121,29 @@
     return k || "";
   }
 
+  function pexelsProxyUrl(q) {
+    return `${window.location.origin}/.netlify/functions/pexels-search?q=${encodeURIComponent(q)}`;
+  }
+
+  async function fetchPexelsSearch(q) {
+    const key = getPexelsKey();
+    const direct = `https://api.pexels.com/v1/search?query=${encodeURIComponent(q)}&per_page=24&orientation=portrait`;
+    if (key) {
+      const res = await fetch(direct, { headers: { Authorization: key } });
+      if (!res.ok) throw new Error("direct");
+      return res.json();
+    }
+    const res = await fetch(pexelsProxyUrl(q));
+    let data = {};
+    try {
+      data = await res.json();
+    } catch {
+      throw new Error("proxy");
+    }
+    if (!res.ok) throw new Error(data.error || "proxy");
+    return data;
+  }
+
   function wirePexels() {
     const queryInput = document.getElementById("pexels-query");
     const searchBtn = document.getElementById("pexels-search");
@@ -151,19 +155,11 @@
     const mailBtn = document.getElementById("pexels-mail");
 
     async function search() {
-      const apiKey = getPexelsKey();
       const q = queryInput?.value.trim() || "interior architecture";
-      if (!apiKey) {
-        if (status) status.textContent = t("section2.error");
-        return;
-      }
       if (status) status.textContent = t("section2.loading");
       if (grid) grid.innerHTML = "";
       try {
-        const url = `https://api.pexels.com/v1/search?query=${encodeURIComponent(q)}&per_page=24&orientation=portrait`;
-        const res = await fetch(url, { headers: { Authorization: apiKey } });
-        if (!res.ok) throw new Error("pexels");
-        const data = await res.json();
+        const data = await fetchPexelsSearch(q);
         if (!data.photos || !data.photos.length) {
           if (status) status.textContent = t("section2.error");
           return;
@@ -189,7 +185,9 @@
         });
         if (status) status.textContent = "";
       } catch {
-        if (status) status.textContent = t("section2.error");
+        if (status) {
+          status.textContent = getPexelsKey() ? t("section2.error") : t("section2.errorProxy");
+        }
       }
     }
 
@@ -319,7 +317,7 @@
         if (removed) return;
         removed = true;
         splash.remove();
-        scrollToAboutIfDefault();
+        if (document.getElementById("about")) scrollToAboutIfDefault();
       }
       splash.addEventListener(
         "transitionend",
@@ -351,13 +349,13 @@
 
   document.addEventListener("DOMContentLoaded", () => {
     applyI18n();
-    wireSplash();
-    wireImages();
+    if (document.getElementById("splash")) wireSplash();
+    if (document.querySelector(".about-grid img, .smart-visuals img")) wireImages();
     registerSW();
     wireInstall();
     wireNav();
     wireLang();
-    wirePexels();
-    wireStudentForm();
+    if (document.getElementById("pexels-query")) wirePexels();
+    if (document.getElementById("student-form")) wireStudentForm();
   });
 })();

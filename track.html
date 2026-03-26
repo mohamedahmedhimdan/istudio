@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#121212" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="description" content="Track your iStudio project on PlanRadar." />
+    <title>iStudio — Project tracking</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="assets/logo.png" />
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Noto+Sans+Arabic:wght@300..700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html"><img src="assets/logo.png" alt="iStudio" class="brand-logo" width="160" height="40" /></a>
+        <nav class="nav" aria-label="Primary">
+          <a href="index.html" data-i18n="nav.home">Home</a>
+          <a href="about.html" data-i18n="nav.about">About</a>
+          <a href="track.html" data-i18n="nav.track">Track</a>
+          <a href="inspire.html" data-i18n="nav.inspire">Design discovery</a>
+          <a href="students.html" data-i18n="nav.students">Students</a>
+          <a href="experience.html" data-i18n="nav.experience">Experience</a>
+          <a href="smart.html" data-i18n="nav.smart">Smart Chapter</a>
+        </nav>
+        <div class="header-actions">
+          <button type="button" class="btn btn-ghost" id="btn-install" hidden data-i18n="install.hint">Install app</button>
+          <button type="button" class="btn btn-lang" id="btn-lang" aria-label="Switch language">العربية</button>
+        </div>
+      </div>
+      <nav class="nav-strip" aria-label="Primary mobile">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="track.html" data-i18n="nav.track">Track</a>
+        <a href="inspire.html" data-i18n="nav.inspire">Design</a>
+        <a href="students.html" data-i18n="nav.students">Students</a>
+        <a href="experience.html" data-i18n="nav.experience">Experience</a>
+        <a href="smart.html" data-i18n="nav.smart">Smart</a>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="section section-split" id="track">
+        <div class="section-intro">
+          <span class="section-label" data-i18n="section1.label">02 · Client access</span>
+          <h2 data-i18n="section1.title">Track your project on PlanRadar</h2>
+          <p class="section-lead" data-i18n="section1.body"></p>
+        </div>
+        <div class="panel panel-radar">
+          <div class="panel-icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M3 3v18h18" />
+              <path d="M7 16l4-4 4 4 6-6" />
+            </svg>
+          </div>
+          <label class="field-label" for="ref-input" data-i18n="section1.field">Gmail and project reference</label>
+          <input type="email" id="ref-input" class="input" data-i18n-placeholder="section1.placeholder" placeholder="" autocomplete="email" inputmode="email" />
+          <a class="btn btn-primary btn-block" href="https://www.planradar.com/" target="_blank" rel="noopener noreferrer" data-i18n="section1.cta">Open PlanRadar</a>
+          <p class="panel-note" data-i18n="section1.note"></p>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <p data-i18n="footer.rights">© iStudio</p>
+      <p>
+        <a href="https://www.planradar.com/" target="_blank" rel="noopener" data-i18n="footer.planradar">PlanRadar</a>
+        · <a href="index.html">Home</a>
+      </p>
+    </footer>
+    <script src="js/config.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

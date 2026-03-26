@@ -1,11 +1,13 @@
 /** Bilingual copy — EN in `en`, AR in `ar` only (language toggle). */
 window.I18N = {
   en: {
+    "nav.home": "Home",
     "nav.track": "Project tracking",
     "nav.inspire": "Design discovery",
     "nav.students": "Student mentorship",
     "nav.smart": "Smart Chapter",
     "nav.about": "About",
+    "nav.experience": "Experience",
     "splash.hint": "Tap anywhere to continue",
     "hero.tag": "Architecture & interiors",
     "hero.title": "Vision, built with clarity.",
@@ -31,6 +33,8 @@ window.I18N = {
     "section2.selected": "selected",
     "section2.sendEmail": "Send by email",
     "section2.noEmail": "Studio email is not configured. Please add ISTUDIO_CONTACT_EMAIL in js/config.js.",
+    "section2.errorProxy":
+      "Could not load images. On Netlify, add environment variable PEXELS_API_KEY in Site settings, or use js/config.js locally.",
     "section2.clear": "Clear selection",
     "section2.loading": "Loading…",
     "section2.error": "We could not load results. Check your connection and try again.",
@@ -83,11 +87,13 @@ window.I18N = {
     "footer.pexels": "Imagery via Pexels"
   },
   ar: {
+    "nav.home": "الرئيسية",
     "nav.track": "متابعة المشروع",
     "nav.inspire": "استكشاف التصميم",
     "nav.students": "إرشاد الطلاب",
     "nav.smart": "الفصل الذكي",
     "nav.about": "من نحن",
+    "nav.experience": "التجربة",
     "splash.hint": "اضغط في أي مكان للمتابعة",
     "hero.tag": "عمارة وتصميم داخلي",
     "hero.title": "رؤية تُبنى بوضوح.",
@@ -113,6 +119,8 @@ window.I18N = {
     "section2.selected": "محدد",
     "section2.sendEmail": "إرسال بالبريد",
     "section2.noEmail": "لم يُضبط بريد الاستوديو. أضف ISTUDIO_CONTACT_EMAIL في ملف js/config.js.",
+    "section2.errorProxy":
+      "تعذر تحميل الصور. على Netlify أضف المتغير PEXELS_API_KEY في إعدادات الموقع، أو استخدم js/config.js محليًا.",
     "section2.clear": "مسح التحديد",
     "section2.loading": "جاري التحميل…",
     "section2.error": "تعذر تحميل النتائج. تحقق من الاتصال وأعد المحاولة.",

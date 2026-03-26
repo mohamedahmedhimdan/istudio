@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#121212" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="description" content="Student mentorship — iStudio." />
+    <title>iStudio — Students</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="assets/logo.png" />
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Noto+Sans+Arabic:wght@300..700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html"><img src="assets/logo.png" alt="iStudio" class="brand-logo" width="160" height="40" /></a>
+        <nav class="nav" aria-label="Primary">
+          <a href="index.html" data-i18n="nav.home">Home</a>
+          <a href="about.html" data-i18n="nav.about">About</a>
+          <a href="track.html" data-i18n="nav.track">Track</a>
+          <a href="inspire.html" data-i18n="nav.inspire">Design discovery</a>
+          <a href="students.html" data-i18n="nav.students">Students</a>
+          <a href="experience.html" data-i18n="nav.experience">Experience</a>
+          <a href="smart.html" data-i18n="nav.smart">Smart Chapter</a>
+        </nav>
+        <div class="header-actions">
+          <button type="button" class="btn btn-ghost" id="btn-install" hidden data-i18n="install.hint">Install app</button>
+          <button type="button" class="btn btn-lang" id="btn-lang" aria-label="Switch language">العربية</button>
+        </div>
+      </div>
+      <nav class="nav-strip" aria-label="Primary mobile">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="track.html" data-i18n="nav.track">Track</a>
+        <a href="inspire.html" data-i18n="nav.inspire">Design</a>
+        <a href="students.html" data-i18n="nav.students">Students</a>
+        <a href="experience.html" data-i18n="nav.experience">Experience</a>
+        <a href="smart.html" data-i18n="nav.smart">Smart</a>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="section section-students" id="students">
+        <div class="section-head">
+          <span class="section-label" data-i18n="section3.label">04 · Students</span>
+          <h2 data-i18n="section3.title">Mentorship with our team</h2>
+          <p class="section-lead" data-i18n="section3.body"></p>
+        </div>
+        <div class="student-grid">
+          <form class="card form-card" id="student-form">
+            <label><span data-i18n="section3.name">Full name</span><input type="text" name="name" class="input" required /></label>
+            <label><span data-i18n="section3.email">Email</span><input type="email" name="email" class="input" required /></label>
+            <label><span data-i18n="section3.school">School / program</span><input type="text" name="school" class="input" /></label>
+            <label><span data-i18n="section3.topic">Topic</span><textarea name="topic" class="input textarea" rows="4"></textarea></label>
+            <button type="submit" class="btn btn-primary" data-i18n="section3.submit">Request intro</button>
+          </form>
+          <aside class="card plan-card">
+            <h3 data-i18n="section3.planTitle">Guidance subscription</h3>
+            <p class="plan-price" data-i18n="section3.planPrice">AED 50 / month</p>
+            <p class="plan-note" data-i18n="section3.planNote"></p>
+            <button type="button" class="btn btn-pay" id="btn-pay" disabled title="Payment coming soon">
+              <span data-i18n="section3.pay">Pay securely</span>
+              <span class="badge" data-i18n="section3.paySoon">Soon</span>
+            </button>
+            <p class="pay-hint" data-i18n="section3.payDisabled"></p>
+          </aside>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <p data-i18n="footer.rights">© iStudio</p>
+      <p><a href="index.html">Home</a></p>
+    </footer>
+    <script src="js/config.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

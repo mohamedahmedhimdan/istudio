@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#121212" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="description" content="Curate design references for your space — iStudio." />
+    <title>iStudio — Design discovery</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="assets/logo.png" />
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Noto+Sans+Arabic:wght@300..700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html"><img src="assets/logo.png" alt="iStudio" class="brand-logo" width="160" height="40" /></a>
+        <nav class="nav" aria-label="Primary">
+          <a href="index.html" data-i18n="nav.home">Home</a>
+          <a href="about.html" data-i18n="nav.about">About</a>
+          <a href="track.html" data-i18n="nav.track">Track</a>
+          <a href="inspire.html" data-i18n="nav.inspire">Design discovery</a>
+          <a href="students.html" data-i18n="nav.students">Students</a>
+          <a href="experience.html" data-i18n="nav.experience">Experience</a>
+          <a href="smart.html" data-i18n="nav.smart">Smart Chapter</a>
+        </nav>
+        <div class="header-actions">
+          <button type="button" class="btn btn-ghost" id="btn-install" hidden data-i18n="install.hint">Install app</button>
+          <button type="button" class="btn btn-lang" id="btn-lang" aria-label="Switch language">العربية</button>
+        </div>
+      </div>
+      <nav class="nav-strip" aria-label="Primary mobile">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="track.html" data-i18n="nav.track">Track</a>
+        <a href="inspire.html" data-i18n="nav.inspire">Design</a>
+        <a href="students.html" data-i18n="nav.students">Students</a>
+        <a href="experience.html" data-i18n="nav.experience">Experience</a>
+        <a href="smart.html" data-i18n="nav.smart">Smart</a>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="section section-inspire" id="inspire">
+        <div class="section-head">
+          <span class="section-label" data-i18n="section2.label">03 · Inspiration</span>
+          <h2 data-i18n="section2.title">Curate references for your space</h2>
+          <p class="section-lead" data-i18n="section2.body"></p>
+        </div>
+        <div class="pexels-toolbar">
+          <div class="search-row">
+            <input type="search" id="pexels-query" class="input input-search" data-i18n-placeholder="section2.searchPlaceholder" placeholder="" />
+            <button type="button" class="btn btn-primary" id="pexels-search" data-i18n="section2.search">Search</button>
+          </div>
+        </div>
+        <p class="pexels-status" id="pexels-status" role="status"></p>
+        <div class="pexels-grid" id="pexels-grid"></div>
+        <p class="pexels-attrib" data-i18n="section2.attrib"></p>
+        <div class="pexels-bar" id="pexels-bar" hidden>
+          <span id="pexels-count">0</span> <span data-i18n="section2.selected">selected</span>
+          <div class="pexels-bar-actions">
+            <button type="button" class="btn btn-ghost" id="pexels-clear" data-i18n="section2.clear">Clear</button>
+            <button type="button" class="btn btn-primary" id="pexels-mail" data-i18n="section2.sendEmail">Send by email</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <p data-i18n="footer.rights">© iStudio</p>
+      <p><a href="https://www.pexels.com/" target="_blank" rel="noopener" data-i18n="footer.pexels">Pexels</a> · <a href="index.html">Home</a></p>
+    </footer>
+    <script src="js/config.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

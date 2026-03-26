@@ -4,6 +4,8 @@ Pexels: API key only in js/config.js (not shown on the site). Copy from js/confi
 
 Contact: set ISTUDIO_CONTACT_EMAIL in js/config.js (your Gmail or Google Workspace) for “Send by email” from the inspiration picker.
 
+Netlify: In Site settings → Environment variables, add PEXELS_API_KEY (same value as in js/config.js). The site calls /.netlify/functions/pexels-search so search works without committing config.js. Redeploy after adding the variable.
+
 Replace or add these files to match your brand kit:
 
 - item.png — Optional legacy asset; the hub now uses solid colour cards (no image required).
