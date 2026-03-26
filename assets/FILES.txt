@@ -1,0 +1,18 @@
+Logo: export PNG or SVG with transparent background for best quality. If the file has a white rectangle, css/styles.css uses mix-blend-mode: multiply on the logo so it blends with the cream background; remove that rule if colors look wrong.
+
+Pexels: API key only in js/config.js (not shown on the site). Copy from js/config.example.js on a new machine if you use Git without committing config.js.
+
+Contact: set ISTUDIO_CONTACT_EMAIL in js/config.js (your Gmail or Google Workspace) for “Send by email” from the inspiration picker.
+
+Replace or add these files to match your brand kit:
+
+- item.png — Optional legacy asset; the hub now uses solid colour cards (no image required).
+- logo.png — Your official mark (also used in manifest / home screen).
+- color plate.png — Open css/styles.css and adjust the :root variables (--copper, --charcoal, etc.) to match your plate.
+- interface.png / البنود.png — Layout reference only; the live site follows that structure (split hero items, centered inspiration band).
+- istudio-smart-chapter images — Save as:
+    smart-1.jpg, smart-2.jpg, smart-3.jpg
+  (large mood shots for the Smart Chapter section)
+- About grid — Optional high-res interiors as:
+    about-1.jpg … about-6.jpg
+  If a file is missing, the site loads neutral Unsplash placeholders until you add yours.

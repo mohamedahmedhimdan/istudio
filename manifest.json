@@ -1,0 +1,26 @@
+{
+  "name": "iStudio — Architectural Design",
+  "short_name": "iStudio",
+  "description": "Track projects, explore design inspiration, and student guidance by iStudio.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#F4F2EF",
+  "theme_color": "#A67C52",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "assets/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
